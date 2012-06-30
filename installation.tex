@@ -1,0 +1,42 @@
+\section{Installation}\label{sec:Installation}
+This section explains the steps necessary to use \product{}.
+
+\subsection{Files}\label{sec:Files}
+\product{} comes with three files and two folders:
+\begin{itemize}
+\itemWithHead{\textnormal{\executableFile}}
+Executable java file; see Section~\ref{sec:Usage} for more information about possible command line arguments.
+\itemWithHead{\textnormal{\configFile}}
+Configuration file; it has to be located in the same directory as the executable. See Section~\ref{sec:Installation_Configuration} for more information about the configuration of \product{}.
+\itemWithHead{\textnormal{\textbf{src/}}}
+Folder containing the source files that were used to generate the executable jar file \executableFile.
+\itemWithHead{\textnormal{\textbf{doc/}}}
+Folder containing the Javadoc files.
+\itemWithHead{\textnormal{\manualFile}}
+This file.
+
+\end{itemize}
+
+\subsection{Prerequisites}\label{sec:Installation_Prerequisites}
+\product{} requires the following two components to be installed:
+\begin{enumerate}
+\item The Java Runtime Environment~\cite{Java} and
+\item a compatible tagger that is capable of identifying language tokens, part of speech and sentence boundaries in all languages supported by HeidelTime. We decided to use TreeTagger~\cite{TreeTagger} of the University of Stuttgart. Since HeidelTime supports English, German, and Dutch, you have to download and install the so called "parameter files" for those languages as well (all that are available, e.g., for German, download the Latin1 and the UTF-8 parameter files), to provide TreeTagger with the necessary knowledge (see the TreeTagger Web-site for more information).
+
+Note: If you use HeidelTime on Windows, please see Appendix \ref{app:windows}.
+\end{enumerate}
+
+\subsection{Configuration}\label{sec:Installation_Configuration}
+After the installation of the prerequisites mentioned in Section~\ref{sec:Installation_Prerequisites} there is one parameter in the configuration that requires further attention: \configVar{treeTaggerHome}. This variable has to point to the root directory of TreeTagger.\\
+There are some more options that you might want to adjust to fit your needs:
+\begin{itemize}
+\itemWithHead{\textnormal{\configVar{considerDate}}}
+Indicates whether HeidelTime should consider Timex3 expressions of type DATE.
+\itemWithHead{\textnormal{\configVar{considerDuration}}}
+Indicates whether HeidelTime should consider Timex3 expressions of type DURATION.
+\itemWithHead{\textnormal{\configVar{considerSet}}}
+Indicates whether HeidelTime should consider Timex3 expressions of type SET.
+\itemWithHead{\textnormal{\configVar{considerTime}}}
+Indicates whether HeidelTime should consider Timex3 expressions of type TIME.
+\end{itemize}
+All other options are not meant to be changed and therefore skipped in this section.

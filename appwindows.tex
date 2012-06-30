@@ -1,0 +1,18 @@
+\appendix
+\section{Information for Windows Users}\label{app:windows}
+If you are using HeidelTime standalone on Windows, you have to download and install the following TreeTagger~\cite{TreeTagger} scripts and resources, in addition to the Windows version of the TreeTagger:
+\begin{itemize}
+ \item utf8-tokenize.perl
+ \item german-abbreviations-utf8
+ \item dutch-abbreviations
+\end{itemize}
+
+For this, download and extract the TreeTagger tagging scripts\\
+ \url{ftp://ftp.ims.uni-stuttgart.de/pub/corpora/tagger-scripts.tar.gz} (be aware that this file should be extracted in an empty folder). Then, copy the following files to your TreeTagger folders:
+\begin{itemize}
+ \item copy cmd/utf8-tokenize.perl to TREETAGGER\_HOME/cmd/
+ \item copy lib/german-abbreviations-utf8 to TREETAGGER\_HOME/lib/
+ \item copy lib/dutch-abbreviations to TREETAGGER\_HOME/lib/
+\end{itemize}
+
+You should now be able to run HeidelTime standalone on a Windows machine.

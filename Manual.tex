@@ -1,0 +1,114 @@
+\documentclass[
+     11pt,         % font size
+     a4paper,      % paper format
+     oneside,
+     ]{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{url}
+%\usepackage{times}
+
+\usepackage{ifpdf}
+\usepackage{ifthen}
+\usepackage{graphicx}
+
+\usepackage{longtable}
+\usepackage{ragged2e}
+\usepackage{array}
+
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[USenglish]{babel}
+\usepackage[numbers]{natbib}
+
+\ifpdf
+\usepackage[pdftex, bookmarks=true]{hyperref}
+\else
+\fi
+
+\newcommand{\commandLineCmd}[1]{"{#1}"}
+
+% Formats config variable
+\newcommand{\configVar}[1]{\emph{#1}}
+
+% Formats file name
+\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\configFile}{\file{config.props}}
+\newcommand{\executableFile}{\file{\executableFilePlain}}
+\newcommand{\executableFilePlain}{de.unihd.dbs.heideltime.standalone.jar}
+\newcommand{\manualFile}{\file{manual.pdf}}
+
+% Sets up head for item in itemize or enumerate
+\newcommand{\itemWithHead}[1]{\item \emph{#1}\\}
+
+% Sets up head for item in itemize or enumerate with no followed newline
+\newcommand{\itemWithHeadNoNL}[1]{\item \emph{#1}}
+
+% Formats java expression
+\newcommand{\javaExpr}[1]{\emph{#1}}
+
+% Comments sth.
+\newcommand{\note}[1]{\textcolor{red}{\textbf{#1}}}
+
+% Product name
+\newcommand{\product}{HeidelTime Standalone}
+
+% Strongly emphasizes
+\newcommand{\strong}[1]{\textbf{#1}}
+
+% Formats table head
+\newcommand{\tableHead}[1]{\textsc{#1}}
+
+
+% Document
+\begin{document}
+
+% Title
+\title{%
+HeidelTime Standalone Version\\
+Manual
+}
+\author{Andreas Fay, Jannik Str\"otgen (Heidelberg University)\\[0.2em]
+\small \texttt{stroetgen@uni-hd.de}
+}
+\date{May 2012}
+\maketitle
+
+\begin{abstract}
+This document contains information about how to install and use the standalone version of HeidelTime. HeidelTime itself is a multilingual temporal tagger for the extraction and normalization of temporal expressions from documents, developed at the University of Heidelberg from Str\"otgen and Gertz~\cite{Strotgen2010, HeidelTime, StroetgenGertz2012}.\\
+The original version of HeidelTime is designed to run within a proper UIMA-Pipeline~\cite{UIMA}. With this standalone version the original version is wrapped such that it can be run with less prerequisites and especially without UIMA.\\
+HeidelTime Standalone comes with resources for English, German, and Dutch. The Dutch resources are developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}.
+\end{abstract}
+
+% Table of contents
+\tableofcontents
+
+% Chapters
+%\input{preface}
+\input{quickstart}
+\input{installation}
+\input{usage}
+
+\section{License}
+Copyright (c) 2012, Database Research Group, Institute of Computer Science, University of Heidelberg. 
+All rights reserved. This program and the accompanying materials 
+are made available under the terms of the GNU General Public License.
+
+If you use HeidelTime, please cite one of the papers describing HeidelTime: \cite{Strotgen2010, StroetgenGertz2012}. Thank you.
+
+% HeidelTime is a multilingual, cross-domain temporal tagger.
+For details, see http://dbs.ifi.uni-heidelberg.de/heideltime/.
+
+
+
+% Bibliography
+\bibliographystyle{plainnat}
+\bibliography{literature}
+\addcontentsline{toc}{section}{References}
+
+\input{appwindows}
+
+\end{document}

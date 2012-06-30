@@ -1,0 +1,35 @@
+\section{Usage}\label{sec:Usage}
+This section explains how to use \product{} both as a command line tool and as a component in other java projects.
+
+\subsection{Command Line Usage}\label{sec:Usage_CommandLine}
+To use \product{}, open a command line terminal and change to the directory containing \executableFile{}. You then are able to run it using the following command:\newline \commandLineCmd{java -jar \executableFilePlain{} <file> <options>} where \emph{<file>} is the path to a text document on your hard disk and \emph{<options>} possible options explained in Table~\ref{tab:Usage_Options}.
+
+\textbf{Encoding settings:}
+\product{} can process files of different encodings. However, independent of the input encoding, the output is always encoded as UTF-8. If the default encoding of your Java Virtual Machine is not UTF-8, \textbf{you have to set the encoding to UTF-8} using the -Dfile.encoding option:
+% assumes that the encoding of the document that is to be processed is encoded in the default encoding of the Java Virtual Machine. However, you are able to set the encoding of the input file using the -Dfile.encoding option: 
+\newline \commandLineCmd{java -Dfile.encoding=UTF-8 -jar \executableFilePlain{} <file> <options>}\newline
+If the encoding of the document that is to be processed is not UTF-8, you can specify the encoding with parameter ``-e'' as described in Table~\ref{tab:Usage_Options}.
+
+
+\begin{longtable}{|l|>{\RaggedRight}p{3cm}|>{\RaggedRight}p{7cm}|}
+\caption{Command line arguments of \product{}.}\label{tab:Usage_Options}\\
+\hline
+\tableHead{Option} & \tableHead{Name} & \tableHead{Description} \\
+\hline\hline\endfirsthead
+\hline
+\tableHead{Option} & \tableHead{Name} & \tableHead{Description} \\
+\hline\hline\endhead
+-dct & Document Creation Time & Date of the format yyyy-MM-dd when the document specified by \emph{<file>} was created. This information is used only if "-t" is set to NEWS or COLLOQUIAL. It is used to resolve relative temporal expression such as "today". The default value is the current date on the local machine.\\\hline
+-l & Language & Language of the document. Possible values are: ENGLISH, GERMAN, DUTCH, ENGLISHCOLL (for -t COLLOQUIAL) and ENGLISHSCI (for -t SCIENTIFIC). The default is ENGLISH. \\\hline
+-t & Type & Type of the document specified by \emph{<file>}. Possible values are: NARRATIVES, NEWS, COLLOQUIAL and SCIENTIFIC. The default value is NARRATIVES. The major difference between these types is the consideration of "-dct" if type is set to NEWS or COLLOQUIAL. \\\hline
+-o & Output Type & Type of the result. Possible values are: XMI and TIMEML. The default value is TIMEML. \\\hline
+-e & Encoding & Encoding of the document that is to be processed, e.g., UTF-8, ISO-8859-1, ... Default value is UTF-8.\\\hline
+-c & Configuration file & Relative or absolute path to the configuration file. Default file is config.props \\\hline
+-v/-vv & Verbosity & Turns on verbose or very verbose logging. \\\hline
+-locale & Locale & Lets you set a custom locale to run HeidelTime under. Format is: X\_Y, where X is from ISO 639 and Y is from ISO 3166, e.g.: "en\_GB" \\\hline
+\end{longtable}
+
+You may omit any of the options since they are optional. But \product{} will force you to enter a valid file path. It will print out a string containing an XMI document or the TimeML-annotated text, respectively, with all annotations made by HeidelTime. You may save the output to a file by using the following command:\newline \commandLineCmd{java -jar \executableFilePlain{} <file> <options> > <outputfile>} where \emph{<outputfile>} is the path to the document where the output will be saved into.
+
+\subsection{Component in other Projects}\label{sec:Usage_Component}
+To use \product{} as a component in other projects, you have to prepare the executable jar file \executableFile{}: Add the configuration file \configFile{} to the main directory of the executable using a proper archive tool. Once this is done you can copy the executable wherever you want and use it like a library. To run \product{}, instantiate an object of \javaExpr{HeidelTimeStandalone}. To do so, you simply have to provide the desired language and type that is to be processed (see Table~\ref{tab:Usage_Options} for further information). To actually run HeidelTime, you have to call \javaExpr{process} on the recently instantiated object of type \javaExpr{HeidelTimeStandalone} with the text to be processed. If this text is of type NEWS (remember your decision when instantiating a \javaExpr{HeidelTimeStandalone} object), you have to provide the document creation time as well. As a result you will get a string containing the TimeML document with all annotations made by HeidelTime for further treatment.
