@@ -21,17 +21,41 @@ This file.
 \product{} requires the following two components to be installed:
 \begin{enumerate}
 \item The Java Runtime Environment~\cite{Java} and
-\item a compatible tagger that is capable of identifying language tokens, part of speech and sentence boundaries in all languages supported by HeidelTime. We decided to use TreeTagger~\cite{TreeTagger} of the University of Stuttgart. Since HeidelTime supports English, German, and Dutch, you have to download and install the so called "parameter files" for those languages as well (all that are available, e.g., for German, download the Latin1 and the UTF-8 parameter files), to provide TreeTagger with the necessary knowledge (see the TreeTagger Web-site for more information).
+\item A compatible pre-processing tagger that is capable of identifying language tokens, part of speech and sentence boundaries in all languages supported by HeidelTime. We decided to use TreeTagger~\cite{TreeTagger} of the University of Stuttgart for English, German, Dutch, Spanish and Italian. You will need to download and install the so called "parameter files" for those languages as well (all that are available, e.g., for German, download the Latin1 and the UTF-8 parameter files), to provide TreeTagger with the necessary functionality (see the TreeTagger Web-site for more information).
+\item If you use \product{} to annotate documents in Vietnamese, you will need to get a copy of JVnTextPro~\cite{JVnTextPro}
+\item For Arabic documents, you will need to download a full package of the Stanford POS Tagger~\cite{StanfordPOSTagger}
 
-Note: When using \product{} with a German, Spanish or Italian language parameter, make sure to get the UTF-8 versions of the TreeTagger parameter files.
-
-Note 2: If you use HeidelTime on Windows, please see Appendix \ref{app:windows}.
+Note 2: If you use \product{} on Windows, please see Appendix \ref{app:windows}.
 \end{enumerate}
 
 \subsection{Configuration}\label{sec:Installation_Configuration}
-After the installation of the prerequisites mentioned in Section~\ref{sec:Installation_Prerequisites} there is one parameter in the configuration that requires further attention: \configVar{treeTaggerHome}. This variable has to point to the root directory of TreeTagger.\\
-There are some more options that you might want to adjust to fit your needs:
+After the installation of the prerequisites mentioned in Section~\ref{sec:Installation_Prerequisites}, there are a few parameters to set up in the configuration file \configFile{}:
 \begin{itemize}
+
+\subsection*{\textbf{For most languages}}
+\itemWithHead{\textnormal{\configVar{treeTaggerHome}}}
+This variable has to point to the root directory of TreeTagger that you will need to use for most languages.
+
+\subsection*{\textbf{For use with Vietnamese}}
+\itemWithHead{\textnormal{\configVar{word\_model\_path}}}
+This variable needs to point to the \textit{folder} where JVnTextPro's segmentation model is stored. \\
+Example: \texttt{/opt/jvntextpro/models/jvnsegmenter}
+\itemWithHead{\textnormal{\configVar{sent\_model\_path}}}
+This variable needs to point to the \textit{folder} where JVnTextPro's sentence segmentation model is stored. \\
+Example: \texttt{/opt/jvntextpro/models/jvnsensegmenter}
+\itemWithHead{\textnormal{\configVar{pos\_model\_path}}}
+This variable needs to point to the \textit{folder} where JVnTextPro's part of speech model is stored. \\
+Example: \texttt{/opt/jvntextpro/models/jvnpostag/maxent}
+
+\subsection*{\textbf{For use with Arabic}}
+\itemWithHead{\textnormal{\configVar{model\_path}}}
+This variable needs to point to the path where StanfordPOSTagger's tagger model \textit{file} is stored. \\
+Example: \texttt{/opt/stanfordpostagger/models/arabic-accurate.tagger}
+\itemWithHead{\textnormal{\configVar{config\_path}}}
+This variable can be set to point to the path where StanfordPOSTagger's config model \textit{file} is stored. This setting is optional and can be omitted (left empty). \\
+Example: \texttt{/opt/stanfordpostagger/tagger.config}
+
+\subsection*{\textbf{General options}}
 \itemWithHead{\textnormal{\configVar{considerDate}}}
 Indicates whether HeidelTime should consider Timex3 expressions of type DATE.
 \itemWithHead{\textnormal{\configVar{considerDuration}}}
