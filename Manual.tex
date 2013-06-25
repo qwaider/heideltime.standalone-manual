@@ -39,7 +39,7 @@
 \newcommand{\configFile}{\file{config.props}}
 \newcommand{\executableFile}{\file{\executableFilePlain}}
 \newcommand{\executableFilePlain}{de.unihd.dbs.heideltime.standalone.jar}
-\newcommand{\manualFile}{\file{manual.pdf}}
+\newcommand{\manualFile}{\file{Manual.pdf}}
 
 % Sets up head for item in itemize or enumerate
 \newcommand{\itemWithHead}[1]{\item \emph{#1}\\}
@@ -62,6 +62,9 @@
 % Formats table head
 \newcommand{\tableHead}[1]{\textsc{#1}}
 
+% 
+\newcommand{\languages}{English, German, Spanish, Italian, Vietnamese, Arabic, and Dutch}
+
 
 % Document
 \begin{document}
@@ -71,16 +74,16 @@
 HeidelTime Standalone Version\\
 Manual
 }
-\author{Andreas Fay, Jannik Str\"otgen, Julian Zell (Heidelberg University)\\[0.2em]
-\small \texttt{stroetgen@uni-hd.de, j.zell@stud.uni-heidelberg.de}
+\author{Julian Zell, Andreas Fay, Jannik Str\"otgen (Heidelberg University)\\[0.2em]
+\small \texttt{j.zell@stud.uni-heidelberg.de, stroetgen@uni-hd.de}
 }
-\date{April 2013}
+\date{June 2013}
 \maketitle
 
 \begin{abstract}
-This document contains information about how to install and use the standalone version of HeidelTime. HeidelTime itself is a multilingual temporal tagger for the extraction and normalization of temporal expressions from documents, developed at the University of Heidelberg from Str\"otgen and Gertz~\cite{Strotgen2010, HeidelTime, StroetgenGertz2012}.\\
+This document contains information about how to install and use the standalone version of HeidelTime. HeidelTime itself is a multilingual temporal tagger for the extraction and normalization of temporal expressions from documents, developed at the Heidelberg University from Str\"otgen and Gertz~\cite{Strotgen2010, HeidelTime, StroetgenGertz2012}.\\
 The original version of HeidelTime is designed to run within a proper UIMA-Pipeline~\cite{UIMA}. With this standalone version the original version is wrapped such that it can be run with less prerequisites and especially without UIMA.\\
-HeidelTime Standalone comes with resources for English, German, and Dutch. The Dutch resources are developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}.
+HeidelTime Standalone comes with resources for \languages. The Dutch resources are developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}.
 \end{abstract}
 
 % Table of contents
