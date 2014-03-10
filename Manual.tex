@@ -24,10 +24,10 @@
 \usepackage[USenglish]{babel}
 \usepackage[numbers]{natbib}
 
-\ifpdf
+%\ifpdf
 \usepackage[pdftex, bookmarks=true]{hyperref}
-\else
-\fi
+%\else
+%\fi
 
 \newcommand{\commandLineCmd}[1]{"#1"}
 
@@ -75,28 +75,28 @@ HeidelTime Standalone Version\\
 Manual
 }
 \author{Julian Zell, Andreas Fay, Jannik Str\"otgen (Heidelberg University)\\[0.2em]
-\small \texttt{j.zell@stud.uni-heidelberg.de, stroetgen@uni-hd.de}
+\small \texttt{zell@informatik.uni-heidelberg.de, stroetgen@uni-hd.de}
 }
-\date{June 2013}
+\date{March 2014}
 \maketitle
 
 \begin{abstract}
 This document contains information about how to install and use the standalone version of HeidelTime. HeidelTime itself is a multilingual temporal tagger for the extraction and normalization of temporal expressions from documents, developed at the Heidelberg University from Str\"otgen and Gertz~\cite{Strotgen2010, HeidelTime, StroetgenGertz2012}.\\
 The original version of HeidelTime is designed to run within a proper UIMA-Pipeline~\cite{UIMA}. With this standalone version the original version is wrapped such that it can be run with less prerequisites and especially without UIMA.\\
-HeidelTime Standalone comes with resources for \languages. The Dutch resources are developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}.
+HeidelTime Standalone comes with resources for \languages. Dutch resources were developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}. French resources were provided by Véronique Moriceau (LIMSI-CNRS)\cite{Veronique}.
 \end{abstract}
 
 % Table of contents
 \tableofcontents
 
 % Chapters
-%\input{preface}
+\input{preface}
 \input{quickstart}
 \input{installation}
 \input{usage}
 
 \section{License}
-Copyright (c) 2013, Database Research Group, Institute of Computer Science, University of Heidelberg. 
+Copyright (c) 2014, Database Research Group, Institute of Computer Science, University of Heidelberg. 
 All rights reserved. This program and the accompanying materials 
 are made available under the terms of the GNU General Public License.
 

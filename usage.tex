@@ -3,7 +3,7 @@ This section explains how to use \product{} both as a command line tool and as a
 
 \subsection{Command Line Usage}\label{sec:Usage_CommandLine}
 To use \product{}, open a command line terminal and switch to the directory containing \executableFile{}. You then are able to run it using the following command:\newline \commandLineCmd{java -jar \executableFilePlain{} <file> [options]} where \emph{<file>} is the path to a text document on your hard disk and \emph{[options]} are possible options explained in Table~\ref{tab:Usage_Options}.
-\subsection*{Extra steps for Arabic and Vietnamese tagging}
+\subsection*{Extra steps for Arabic and Vietnamese tagging}\label{taggersetup}
 To tag Arabic and Vietnamese documents, you will need to utilize a different command line scheme. First, you will have to set the \texttt{HT\_CP} variable to include \product{}'s class files as well as those of the languages' respective taggers:\newline
 \newline
 Under Unix/Linux/Mac OS X: \newline
@@ -27,22 +27,24 @@ where \emph{<file>} is the path to a text document on your hard disk and \emph{[
 \tableHead{Option} & \tableHead{Name} & \tableHead{Description} \\
 \hline\hline\endhead
 -dct & Document Creation Time & Date of the format YYYY-MM-DD when the document specified by \emph{<file>} was created. This information is used only if "-t" is set to NEWS or COLLOQUIAL. It is used to resolve relative temporal expression such as "today". The default value is the current date on the local machine.\\\hline
--l & Language & Language of the document. Possible values are: ENGLISH, GERMAN, DUTCH, ENGLISHCOLL (for -t COLLOQUIAL), ENGLISHSCI (for -t SCIENTIFIC), SPANISH, ITALIAN, ARABIC, VIETNAMESE. The default is ENGLISH. \\\hline
+-l & Language & Language of the document. Possible values are: ENGLISH, GERMAN, DUTCH, ENGLISHCOLL (for -t COLLOQUIAL), ENGLISHSCI (for -t SCIENTIFIC), SPANISH, ITALIAN, ARABIC, VIETNAMESE, FRENCH. The default is ENGLISH. \\\hline
 -t & Type & Type of the document specified by \emph{<file>}. Possible values are: NARRATIVES, NEWS, COLLOQUIAL and SCIENTIFIC. The default value is NARRATIVES. The major difference between these types is the consideration of "-dct" if type is set to NEWS or COLLOQUIAL. \\\hline
 -o & Output Type & Type of the result. Possible values are: XMI and TIMEML. The default value is TIMEML. \\\hline
 -e & Encoding & Encoding of the document that is to be processed, e.g., UTF-8, ISO-8859-1, ... Default value is UTF-8.\\\hline
 -c & Configuration file & Relative or absolute path to the configuration file. Default file is config.props \\\hline
 -v/-vv & Verbosity & Turns on verbose or very verbose logging. \\\hline
+-it & IntervalTagger & Enables the IntervalTagger and outputs recognized intervals. \\\hline
 -locale & Locale & Lets you set a custom locale to run HeidelTime under. Format is: X\_Y, where X is from ISO 639 and Y is from ISO 3166, e.g.: "en\_GB" \\\hline
+-pos & POS Tagger & Lets you choose a specific part of speech tagger; either STANFORDPOSTAGGER or TREETAGGER. Note that for Arabic or Vietnamese documents, we allow only StanfordPOSTagger and JVnTextPro respectively. Please take note of the prerequisites in Section~\ref{taggersetup}.\\\hline
 -h & Help & Shows you a list of commands and usage information \\\hline
 \end{longtable}
 
-You may omit any of the options since they are optional. \product{} will however force you to enter a valid document path. It will output an XMI- or TimeML-document to the standard output stream containing all annotations made by HeidelTime. You may save the output to a file by using the following command:\newline \commandLineCmd{java -jar \executableFilePlain{} <file> [options] > <outputfile>} where \emph{<outputfile>} is the path to the document where the output will be saved into.
+You may omit any of the options since they are optional. \product{} will however force you to enter a valid document path. It will output an XMI- or TimeML-document to the standard output stream containing all annotations made by HeidelTime. You may save the output to a file by using the following command:\newline \texttt{\commandLineCmd{java -jar \executableFilePlain{} <file> [options] > <outputfile>}} where \emph{<outputfile>} is the path to the document where the output will be saved into.
 
 \textbf{Encoding settings:}
 \product{} can process files of different encodings. However, independent of the input encoding, the output is always encoded as UTF-8. If the default encoding of your Java Virtual Machine is not UTF-8, \textbf{you have to set the encoding to UTF-8} using the -Dfile.encoding option:
 % assumes that the encoding of the document that is to be processed is encoded in the default encoding of the Java Virtual Machine. However, you are able to set the encoding of the input file using the -Dfile.encoding option: 
-\newline \commandLineCmd{java -Dfile.encoding=UTF-8 -jar \executableFilePlain{} <file> [options]}\newline
+\newline \texttt{\commandLineCmd{java -Dfile.encoding=UTF-8 -jar \executableFilePlain{} <file> [options]}}\newline
 If the encoding of the document that is to be processed is not UTF-8, you can specify the encoding with parameter ``-e'' as described in Table~\ref{tab:Usage_Options}.
 
 \subsection{Component in other Projects}\label{sec:Usage_Component}
