@@ -21,9 +21,9 @@ This file.
 \product{} requires the following two components to be installed:
 \begin{enumerate}
 \item The Java Runtime Environment~\cite{Java} and
-\item A compatible pre-processing tagger that is capable of identifying language tokens, part of speech and sentence boundaries in all languages supported by HeidelTime. We decided to use TreeTagger~\cite{TreeTagger} of the University of Stuttgart for English, German, Dutch, Spanish and Italian. You will need to download and install the so called "parameter files" for those languages as well (all that are available, e.g., for German, download the Latin1 and the UTF-8 parameter files), to provide TreeTagger with the necessary functionality (see the TreeTagger Web-site for more information).
+\item A compatible pre-processing tagger that is capable of identifying language tokens, part of speech and sentence boundaries in all languages supported by HeidelTime. We decided to use TreeTagger~\cite{TreeTagger} for English, German, Dutch, Spanish, Italian, Russian, French and Chinese. You will need to download and install the so called "parameter files" for those languages as well (all that are available, e.g., for German, download the Latin1 and the UTF-8 parameter files), to provide TreeTagger with the necessary functionality (see the TreeTagger Web-site for more information).
 \item To process Chinese documents, please grab a copy of the Chinese TreeTagger parameter file as well as the Chinese Tokenizer from Serge Sharoff's page: \url{http://corpus.leeds.ac.uk/tools/zh/}. Extract the parameter files into the TreeTagger home directory so the files from the \texttt{lib} and \texttt{cmd} folders land in the TreeTager folders. Extract the tokenizer into its own directory and remember the path for the configuration later (Section \ref{sec:Installation_Configuration}).
-\item To process Russian documents, please grab a copy of the Russian parameter file by Serge Sharoff from \url{} and extract it into the TreeTagger's \texttt{lib} folder.
+\item To process Russian documents, please grab a copy of the Russian parameter file by Serge Sharoff from \url{http://corpus.leeds.ac.uk/mocky/} and extract it into the TreeTagger's \texttt{lib} folder.
 \item If you use \product{} to annotate documents in Vietnamese, you will need to get a copy of JVnTextPro~\cite{JVnTextPro}
 \item For Arabic documents, you will need to download a full package of the Stanford POS Tagger~\cite{StanfordPOSTagger}
 
@@ -37,10 +37,12 @@ After the installation of the prerequisites mentioned in Section~\ref{sec:Instal
 \subsection*{\textbf{For most languages}}
 \itemWithHead{\textnormal{\configVar{treeTaggerHome}}}
 This variable has to point to the root directory of TreeTagger that you will need to use for most languages.
+Example: \texttt{/opt/treetagger/}
 
 \subsection*{\textbf{For Chinese}}
 \itemWithHead{\textnormal{\configVar{chineseTokenizerPath}}}
 This variable has to point to the directory where the Chinese Tokenizer Script and files are.
+Example: \texttt{/opt/treetagger/chinese-tokenizer/}
 
 \subsection*{\textbf{For use with Vietnamese}}
 \itemWithHead{\textnormal{\configVar{word\_model\_path}}}
@@ -56,7 +58,7 @@ Example: \texttt{/opt/jvntextpro/models/jvnpostag/maxent}
 \subsection*{\textbf{For use with Arabic}}
 \itemWithHead{\textnormal{\configVar{model\_path}}}
 This variable needs to point to the path where StanfordPOSTagger's tagger model \textit{file} is stored. \\
-Example: \texttt{/opt/stanfordpostagger/models/arabic-accurate.tagger}
+Example: \texttt{/opt/stanfordpostagger/models/arabic.tagger}
 \itemWithHead{\textnormal{\configVar{config\_path}}}
 This variable can be set to point to the path where StanfordPOSTagger's config model \textit{file} is stored. This setting is optional and can be omitted (left empty). \\
 Example: \texttt{/opt/stanfordpostagger/tagger.config}
