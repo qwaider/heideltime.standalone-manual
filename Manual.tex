@@ -63,7 +63,7 @@
 \newcommand{\tableHead}[1]{\textsc{#1}}
 
 % 
-\newcommand{\languages}{English, German, Spanish, Italian, Vietnamese, Arabic, Dutch, Chinese and Russian}
+\newcommand{\languages}{English, German, French, Spanish, Italian, Vietnamese, Arabic, Dutch, Chinese, Russian and Croatian}
 
 
 % Document
@@ -77,17 +77,19 @@ Manual
 \author{Julian Zell, Andreas Fay, Jannik Str\"otgen (Heidelberg University)\\[0.2em]
 \small \texttt{zell@informatik.uni-heidelberg.de, stroetgen@uni-hd.de}
 }
-\date{May 2014}
+\date{December 2014}
 \maketitle
 
 \begin{abstract}
 This document contains information on how to install and use the standalone version of HeidelTime. HeidelTime is a multilingual temporal tagger for the extraction and normalization of temporal expressions from documents, developed at the Heidelberg University by Str\"otgen and Gertz~\cite{Strotgen2010, HeidelTime, StroetgenGertz2013}.\\
-The original version of HeidelTime is designed to run within a proper UIMA-Pipeline~\cite{UIMA}. With this standalone version the original version is wrapped in such a way that it can be run with less prerequisites and, in particular, without UIMA.\\
-HeidelTime Standalone comes with resources for \languages. Dutch resources were developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}. French resources were provided by Véronique Moriceau (LIMSI-CNRS)\cite{Veronique}. A preliminary version of Russian resources was kindly provided by Elena Klyachko\cite{Elena}.
+The original version of HeidelTime is designed to run within a proper UIMA-Pipeline~\cite{UIMA}. With this standalone version the original version is wrapped in such a way that it can be run with fewer prerequisites and, in particular, without UIMA.\\
+HeidelTime Standalone comes with resources for \languages. Dutch resources were developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}. French resources were provided by Véronique Moriceau (LIMSI-CNRS)\cite{Veronique}. A preliminary version of Russian resources was kindly provided by Elena Klyachko\cite{Elena}. Luka Skukan\cite{Luka} kindly contributed resources for Croatian.
 \end{abstract}
 
 % Table of contents
+\newpage
 \tableofcontents
+\newpage
 
 % Chapters
 \input{preface}
@@ -95,6 +97,7 @@ HeidelTime Standalone comes with resources for \languages. Dutch resources were 
 \input{installation}
 \input{usage}
 
+\newpage
 \section{License}
 Copyright (c) 2014, Database Research Group, Institute of Computer Science, University of Heidelberg. 
 All rights reserved. This program and the accompanying materials 
@@ -109,10 +112,12 @@ For details, see \url{http://dbs.ifi.uni-heidelberg.de/heideltime/} or \\
 
 
 % Bibliography
+\newpage
 \bibliographystyle{plainnat}
 \bibliography{literature}
 \addcontentsline{toc}{section}{References}
 
+\newpage
 \input{appwindows}
 
 \end{document}

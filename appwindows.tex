@@ -1,18 +1,13 @@
 \appendix
 \section{Information for Windows Users}\label{app:windows}
-If you are using HeidelTime standalone on Windows, you have to download and install at least the following TreeTagger~\cite{TreeTagger} scripts and resources, in addition to the Windows version of the TreeTagger:
+If you are using HeidelTime standalone on Windows, you have to download and install a Perl interpreter, e.g. ActivePerl from \url{http://www.activestate.com/activeperl}, as well as the Windows version of the TreeTagger~\cite{TreeTagger}, including parameter files for the languages you want to process. A set of initial files to download and extract to the same folder are the following (newer versions may be available):
 \begin{itemize}
- \item utf8-tokenize.perl
- \item german-abbreviations-utf8
- \item dutch-abbreviations
+  \item The Windows Version of the TreeTagger: \\
+    \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-windows-3.2.zip}
+  \item The tagging scripts: \\
+    \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tagger-scripts.tar.gz}
 \end{itemize}
 
-For this, download and extract the TreeTagger tagging scripts\\
- \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tagger-scripts.tar.gz} (be aware that this file should be extracted in an empty folder). Then, copy the following files to your TreeTagger folders:
-\begin{itemize}
- \item copy cmd/utf8-tokenize.perl to TREETAGGER\_HOME/cmd/
- \item copy lib/german-abbreviations-utf8 to TREETAGGER\_HOME/lib/
- \item copy lib/dutch-abbreviations to TREETAGGER\_HOME/lib/
-\end{itemize}
+As for the parameter files for the respective languages, you will need to put any \texttt{.par} files in the \texttt{lib/} folder, any \texttt{\textit{language}-abbreviations} in \texttt{lib/} and any \texttt{tree-tagger-\textit{language}} script file in \texttt{cmd/}. \\
 
-You should now be able to run HeidelTime standalone on a Windows machine.
+Once this is set up, you will need to specify the \textit{treeTaggerHome}-Variable in \texttt{config.props} as described in Section~\ref{sec:Installation_Configuration}. After that, you should be able to run \product as described in Section~\ref{sec:Usage_CommandLine}.
