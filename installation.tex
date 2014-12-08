@@ -18,17 +18,17 @@ This file.
 \end{itemize}
 
 \subsection{Prerequisites}\label{sec:Installation_Prerequisites}
-\product{} requires the following two components to be installed:
+\product{} requires the following components to be installed:
 \begin{enumerate}
-\item The Java Runtime Environment~\cite{Java} and
-\item A compatible pre-processing tagger that is capable of identifying language tokens, part of speech and sentence boundaries in all languages supported by HeidelTime. We decided to use TreeTagger~\cite{TreeTagger} for English, German, Dutch, Spanish, Italian, Russian, French and Chinese. You will need to download and install so called "parameter files" for those languages as well (all that are available, e.g., for German, download the Latin1 and the UTF-8 variants), to provide TreeTagger with the necessary functionality (see the TreeTagger website for more information).
+\item The Java Runtime Environment~\cite{Java}
+\item A compatible pre-processing tool that is capable of identifying language tokens, part of speech and sentence boundaries in all languages supported by HeidelTime. We decided to use TreeTagger~\cite{Schmid1994} for English, German, Dutch, Spanish, Italian, Russian, French and Chinese. You will need to download and install so called "parameter files" for those languages as well (all that are available, e.g., for German, download the Latin1 and the UTF-8 variants), to provide TreeTagger with the necessary functionality (see the TreeTagger website \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/} for more information or Section 3.3 of \url{http://code.google.com/p/heideltime/source/browse/doc/readme.txt} for wget commands).
 \item To process Chinese documents, please grab a copy of the Chinese TreeTagger parameter file from Serge Sharoff's page \url{http://corpus.leeds.ac.uk/tools/zh/} as well as a copy of the Chinese Tokenizer \url{https://drive.google.com/uc?id=0BwqFBQjz9NUiZ3kybkc4YTliMzA}. Extract the parameter files into the TreeTagger home directory so the files from the \texttt{lib} and \texttt{cmd} folders land in the TreeTager folders. Extract the tokenizer into its own directory and remember the path for the configuration later (Section \ref{sec:Installation_Configuration}).
 \item To process Russian documents, please grab a copy of the Russian parameter file by Serge Sharoff from \url{http://corpus.leeds.ac.uk/mocky/} and extract it into the TreeTagger's \texttt{lib} folder.
-\item If you use \product{} to annotate documents in Vietnamese, you will need to get a copy of JVnTextPro~\cite{JVnTextPro}
-\item For Arabic documents, you will need to download a full package of the Stanford POS Tagger~\cite{StanfordPOSTagger}
-\item In order to process documents in Croatian, you will need to download a copy of hunpos~\cite{hunpos} as well as the Croatian tagger model file for it from \url{http://nlp.ffzg.hr/resources/models/tagging/}.
+\item If you use \product{} to annotate documents in Vietnamese, you will need to get a copy of JVnTextPro~\cite{JVnTextPro} from \url{http://sourceforge.net/projects/jvntextpro/}
+\item For Arabic documents, you will need to download a full package of the Stanford POS Tagger~\cite{ToutanovaEtAl2003} from \url{http://nlp.stanford.edu/software/tagger.shtml}
+\item In order to process documents in Croatian, you will need to download a copy of hunpos~\cite{HalacsyEtAl2007} from \url{https://code.google.com/p/hunpos/} as well as the Croatian tagger model file for it from \url{http://nlp.ffzg.hr/resources/models/tagging/}.
 
-Note 2: If you use \product{} on Windows, please see Appendix \ref{app:windows}.
+Note: If you use \product{} on Windows, please see Appendix \ref{app:windows}.
 \end{enumerate}
 
 \subsection{Configuration}\label{sec:Installation_Configuration}
@@ -46,12 +46,12 @@ This variable has to point to the directory where the Chinese Tokenizer Script a
 Example: \texttt{/opt/treetagger/chinese-tokenizer/}
 
 \subsection*{\textbf{For use with Vietnamese}}
-\itemWithHead{\textnormal{\configVar{word\_model\_path}}}
-This variable needs to point to the \textit{folder} where JVnTextPro's segmentation model is stored. \\
-Example: \texttt{/opt/jvntextpro/models/jvnsegmenter}
 \itemWithHead{\textnormal{\configVar{sent\_model\_path}}}
 This variable needs to point to the \textit{folder} where JVnTextPro's sentence segmentation model is stored. \\
 Example: \texttt{/opt/jvntextpro/models/jvnsensegmenter}
+\itemWithHead{\textnormal{\configVar{word\_model\_path}}}
+This variable needs to point to the \textit{folder} where JVnTextPro's segmentation model is stored. \\
+Example: \texttt{/opt/jvntextpro/models/jvnsegmenter}
 \itemWithHead{\textnormal{\configVar{pos\_model\_path}}}
 This variable needs to point to the \textit{folder} where JVnTextPro's part of speech model is stored. \\
 Example: \texttt{/opt/jvntextpro/models/jvnpostag/maxent}
@@ -68,7 +68,7 @@ Example: \texttt{/opt/stanfordpostagger/tagger.config}
 \itemWithHead{\textnormal{\configVar{hunpos\_path}}}
 This variable must point to the \textbf{folder} where the hunpos executable is located. \\
 Example: \texttt{/opt/hunpos/}
-\itemWithHead{\textnormal{\configVar{hunpos\_model\_path}}}
+\itemWithHead{\textnormal{\configVar{hunpos\_model\_name}}}
 This variable needs to represent the \textbf{name} of the hunpos model file used, residing in the \texttt{hunpos\_path} set above. \\
 Example: \texttt{model.hunpos.mte5.defnpout}
 

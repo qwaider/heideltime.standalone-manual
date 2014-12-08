@@ -30,6 +30,9 @@
 %\else
 %\fi
 
+\widowpenalty=10000
+\clubpenalty=10000
+
 \newcommand{\commandLineCmd}[1]{"#1"}
 
 % Formats config variable
@@ -81,9 +84,11 @@ HeidelTime Standalone Manual\\Version 1.8
 \maketitle
 
 \begin{abstract}
-This document contains information on how to install and use the standalone version of HeidelTime. HeidelTime is a multilingual temporal tagger for the extraction and normalization of temporal expressions from documents, developed at the Heidelberg University by Str\"otgen and Gertz~\cite{Strotgen2010, HeidelTime, StroetgenGertz2013}.\\
+This document contains information on how to install and use the standalone version of HeidelTime. HeidelTime is a multilingual, cross-domain temporal tagger for the extraction and normalization of temporal expressions from documents, developed at the Heidelberg University by Str\"otgen and Gertz~\cite{StroetgenGertz2010_SemEval, HeidelTime, StroetgenGertz2013_LRE}.\\
 The original version of HeidelTime is designed to run within a proper UIMA-Pipeline~\cite{UIMA}. With this standalone version the original version is wrapped in such a way that it can be run with fewer prerequisites and, in particular, without UIMA.\\
-HeidelTime Standalone comes with resources for \languages. Dutch resources were developed and kindly provided by Matje van de Camp (Tilburg University)\cite{Matje}. French resources were provided by Véronique Moriceau (LIMSI-CNRS)\cite{Veronique}. A preliminary version of Russian resources was kindly provided by Elena Klyachko\cite{Elena}. Luka Skukan\cite{Luka} kindly contributed resources for Croatian.
+HeidelTime Standalone comes with resources for 11 languages: \languages. In addition, resources called English-colloquial and English-scientific can be used to process colloquial English text (e.g., SMS and tweets) and scientific literature (e.g., clinical trials). \\
+Dutch resources were developed and kindly provided by Matje van de Camp (Tilburg University)\cite{CampChristiansen2012}. French resources were provided by Véronique Moriceau (LIMSI-CNRS)\cite{FrenchHeideltime}. A preliminary version of Russian resources was kindly provided by Elena Klyachko\cite{Elena}. Luka Skukan\cite{SkukanEtAl2014} kindly contributed resources for Croatian. \\
+HeidelTime can process documents of different domains. In all languages, the news and the narratives domains are supported. For news documents, the document creation time is crucial, for narratives (e.g., Wikipedia articles) it is not. For English, colloquial and scientific are additionally supported.
 \end{abstract}
 
 % Table of contents
@@ -97,14 +102,13 @@ HeidelTime Standalone comes with resources for \languages. Dutch resources were 
 \input{installation}
 \input{usage}
 
-\newpage
 \section{License}
 Copyright \textcopyright{} 2014, Database Research Group, Institute of Computer Science, University of Heidelberg. 
 All rights reserved. This program and the accompanying materials are made available under the terms of the GNU General Public License.
 
 The initial version of \product{} was created by Andreas Fay.
 
-If you use HeidelTime, please cite one of the papers describing HeidelTime: \cite{Strotgen2010, StroetgenGertz2013}. Thank you.
+If you use HeidelTime, please cite one of the papers describing HeidelTime: \cite{StroetgenGertz2010_SemEval, StroetgenGertz2013_LRE}. Thank you.
 
 % HeidelTime is a multilingual, cross-domain temporal tagger.
 For details, see \url{http://dbs.ifi.uni-heidelberg.de/heideltime/} or \\
