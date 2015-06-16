@@ -27,7 +27,7 @@ where \emph{<file>} is the path to a text document on your hard disk and \emph{[
 \tableHead{Option} & \tableHead{Name} & \tableHead{Description} \\
 \hline\hline\endhead
 -dct & Document Creation Time & Date of the format YYYY-MM-DD when the document specified by \emph{<file>} was created. This information is used only if "-t" is set to NEWS or COLLOQUIAL. It is used to resolve relative temporal expression such as "today". The default value is the current date on the local machine.\\\hline
--l & Language & Language of the document. Possible values are: ENGLISH, GERMAN, DUTCH, ENGLISHCOLL (for -t COLLOQUIAL), ENGLISHSCI (for -t SCIENTIFIC), SPANISH, ITALIAN, ARABIC, VIETNAMESE, FRENCH, CHINESE, RUSSIAN, CROATIAN. The default is ENGLISH. \\\hline
+-l & Language & Language of the document. Possible values are: ENGLISH, GERMAN, DUTCH, ENGLISHCOLL (for -t COLLOQUIAL), ENGLISHSCI (for -t SCIENTIFIC), SPANISH, ITALIAN, ARABIC, VIETNAMESE, FRENCH, CHINESE, RUSSIAN, CROATIAN, PORTUGUESE, ESTONIAN. The default is ENGLISH. \\\hline
 -t & Type & Type of the document specified by \emph{<file>}. Possible values are: NARRATIVES, NEWS, COLLOQUIAL and SCIENTIFIC. The default value is NARRATIVES. The major difference between these types is the consideration of "-dct" if type is set to NEWS or COLLOQUIAL. \\\hline
 -o & Output Type & Type of the result. Possible values are: XMI and TIMEML. The default value is TIMEML. \\\hline
 -e & Encoding & Encoding of the document that is to be processed, e.g., UTF-8, ISO-8859-1, \ldots\  Default value is UTF-8.\\\hline
@@ -47,6 +47,29 @@ where \emph{<outputfile>} is the path to the document where the output will be s
 % assumes that the encoding of the document that is to be processed is encoded in the default encoding of the Java Virtual Machine. However, you are able to set the encoding of the input file using the -Dfile.encoding option: 
 \newline \texttt{\commandLineCmd{java -Dfile.encoding=UTF-8 -jar \executableFilePlain{} <file> [options]}}\newline
 If the encoding of the document that is to be processed is not UTF-8, you can specify the encoding with parameter ``-e'' as described in Table~\ref{tab:Usage_Options}.
+
+\subsection{Creating new resources}
+A brief step-by-step introduction into developing resources for HeidelTime can be found on our project's wiki here: \\
+\url{https://github.com/HeidelTime/heideltime/wiki/Developing-Resources} 
+\par
+It is noteworthy that as of HeidelTime 1.9, it is also possible to create resources using only the Standalone edition as opposed to the full UIMA kit.
+\par
+To create resources, you should copy one of the existing resource folders (e.g., \texttt{german}) from inside the program's archive into the folder where this file resides. To obtain this folder, you can either copy it out of the \texttt{resources/} folder of the HeidelTime UIMA kit, or extract it from the \product{} \texttt{.jar} file using a program like WinZip or 7zip.
+\par
+Once you have copied out the folder, you should rename it to something that is unique, e.g. \texttt{german-improved}. By default, \product{} will prefer external versions of the resources over the ones built into the \texttt{.jar} file, and to evade possibly confusing situations, unique names should be used.
+\par
+To check whether the folder you have changed is recognized as a resource folder, you should run \product{} with the \texttt{-vv} switch; this will list all recognized language resource folders, including your new one.
+\par
+In order to run \product{} with the new language resources you have created, you will need to supply the language's name like so: 
+\par
+\texttt{java -jar de....jar \textit{-l german-improved} file.txt}
+\par
+Please note that unless a specific preprocessing engine is specified, this name is passed on to the TreeTaggerWrapper which then expects a parameter file under that name to exist. If you extend an existing language, you can just copy the existing parameter files:
+\begin{itemize}
+ \item \texttt{german-utf8.par} $\Rightarrow$ \texttt{german-improved.par}
+ \item \texttt{german-abbreviations-utf8} $\Rightarrow$ \texttt{german-improved-abbreviations}
+\end{itemize}
+in the TreeTagger's \texttt{lib/} folder.
 
 \subsection{Component in other Projects}\label{sec:Usage_Component}
 To use \product{} as a component in other projects, you have to prepare the executable jar file \executableFile{}: Add the configuration file \configFile{} to the main directory of the executable using a proper archive tool. Once this is done you can copy the executable wherever you want and use it like a library. \\
